@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <label for="select1">Basic selector</label>
+      <select id="select1">
+        <option value="1">1245123123</option>
+        <option value="2">2123123123</option>
+        <option value="3">3123123123</option>
+        <option value="4">4123123123</option>
+      </select>
+    </div>
+    <div class="wrapper">
+      <select id="select2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </div>
+    <div class="wrapper">
+      <select id="select3">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </div>
+
+    <div class="wrapper">
+      <label for="select4">My super selector 4</label>
+      <select id="select4">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+      </select>
+    </div>
+
+    <script src="./script.js"></script>
+    <script>
+      const select = document.querySelector("#select1");
+      console.log(select);
+      const list = select.querySelectorAll("option");
+      let arr = [];
+      let v;
+
+      const selectorWrapper = document.createElement("div");
+      selectorWrapper.classList.add("selectorWrapper");
+      selectorWrapper.classList.add("selcetBlock");
+      const listWrapper = document.createElement("ul");
+      listWrapper.classList.add("listWrapper");
+      list.forEach((elem) => {
+        const item = document.createElement("li");
+        item.setAttribute("value", elem.value);
+        item.innerHTML = elem.textContent;
+        item.classList.add("option");
+        listWrapper.append(item);
+      });
+      const selector = document.createElement("div");
+      const btn = document.createElement("button");
+      btn.classList.add("#select1");
+
+      btn.addEventListener("click", () => {
+        listWrapper.classList.toggle("active");
+      });
+
+      btn.innerHTML = "open";
+      selector.append(btn);
+      selectorWrapper.append(selector, listWrapper);
+      select.after(selectorWrapper);
+      select.style = `display:none`;
+
+      listWrapper.addEventListener("click", (e) => {
+        const target = e.target;
+        if (target.classList.contains("option")) {
+          arr.push(target.textContent);
+          target.classList.toggle("select");
+        }
+      });
+
+      window.addEventListener("click", (e) => {
+        const target = e.target;
+        if (
+          !target.classList.contains("option") &&
+          !target.classList.contains("#select1")
+        ) {
+          listWrapper.classList.remove("active");
+          console.log(target);
+        }
+      });
+    </script>
+  </body>
+</html>

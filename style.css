@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  width: 500px;
+  align-items: center;
+  margin: 10px auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+}
+
+option:checked {
+  background: #377af5;
+}
+
+.listWrapper {
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: none;
+  list-style: none;
+}
+
+.selcetBlock {
+  width: 100px;
+  overflow-x: scroll;
+}
+
+.listWrapper li {
+  padding: 5px;
+  cursor: pointer;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+}
+
+.select {
+  background: #377af5;
+}
+
+.active {
+  display: block;
+}
+
+.selectorWrapper {
+  margin-left: 10px;
+}

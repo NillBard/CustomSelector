@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label for="select1">Basic selector</label>
+  <select id="select1">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+
+  <select id="select2">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+
+  <select id="select3">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+
+  <label for="select4">My super selector 4</label>
+  <select id="select4">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+
+  <script>
+    // 1. Берешь лейбл из параметров функции
+    // 2. Ищешь лейбл в разметке
+    // 3. Ничего не показываешь
+
+    window.createCustomSelector('#select1', {
+      multiple: false, // множественный выбор
+      input: false, // фильтрация по введеной строке 
+    });
+
+    window.createCustomSelector('#select2', {
+      label: 'Multiple selector', // 
+      multiple: true, // множественный выбор
+      input: false, // фильтрация по введеной строке 
+    });
+
+    window.createCustomSelector('#select2', {
+      multiple: false, // множественный выбор
+      input: true, // фильтрация по введеной строке 
+    });
+
+    // ****
+    window.createCustomSelector('#select2', {
+      label: 'Multiple input selector', // 
+      multiple: true, // множественный выбор
+      input: true, // фильтрация по введеной строке 
+    });
+  </script>
+
+</body>
+</html>
