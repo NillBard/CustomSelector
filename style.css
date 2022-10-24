@@ -1,6 +1,12 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  height: 2px;
+  width: 1px;
 }
 
 .wrapper {
@@ -12,32 +18,54 @@
   justify-content: start;
 }
 
-option:checked {
-  background: #377af5;
-}
-
 .listWrapper {
+  width: 100%;
   border: 1px solid gray;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 10px;
   display: none;
   list-style: none;
+  position: absolute;
+  background: white;
+  overflow: hidden;
 }
 
-.selcetBlock {
-  width: 100px;
+.selectBlock {
+  cursor: pointer;
+  max-width: 170px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+.selectBlock button {
+  padding: 2px 10px;
+  border: none;
+  background: none;
+}
+
+.selectBlock span {
+  user-select: none;
+  max-width: 130px;
+  display: flex;
+  white-space: nowrap;
   overflow-x: scroll;
 }
 
 .listWrapper li {
   padding: 5px;
   cursor: pointer;
-  border-bottom: 1px solid;
-  border-top: 1px solid;
+}
+
+.listWrapper li:hover {
+  background: aqua;
 }
 
 .select {
   background: #377af5;
+  color: white;
 }
 
 .active {
@@ -46,4 +74,6 @@ option:checked {
 
 .selectorWrapper {
   margin-left: 10px;
+  position: relative;
+  width: 170px;
 }

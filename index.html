@@ -20,8 +20,8 @@
     <div class="wrapper">
       <select id="select2">
         <option>1</option>
-        <option>2</option>
-        <option>3</option>
+        <option value="1">1245123123</option>
+        <option value="2">2123123123</option>
       </select>
     </div>
     <div class="wrapper">
@@ -51,7 +51,6 @@
 
       const selectorWrapper = document.createElement("div");
       selectorWrapper.classList.add("selectorWrapper");
-      selectorWrapper.classList.add("selcetBlock");
       const listWrapper = document.createElement("ul");
       listWrapper.classList.add("listWrapper");
       list.forEach((elem) => {
@@ -62,35 +61,51 @@
         listWrapper.append(item);
       });
       const selector = document.createElement("div");
+      selector.classList.add("selectBlock");
+
       const btn = document.createElement("button");
-      btn.classList.add("#select1");
+      btn.classList.add("chevron");
+      selector.setAttribute("id", "select1");
+      const selectorContent = document.createElement("span");
+      selectorContent.innerHTML = "Выберете элемент";
 
-      btn.addEventListener("click", () => {
-        listWrapper.classList.toggle("active");
-      });
-
-      btn.innerHTML = "open";
-      selector.append(btn);
+      btn.innerHTML = "˅";
+      selector.append(selectorContent, btn);
       selectorWrapper.append(selector, listWrapper);
       select.after(selectorWrapper);
       select.style = `display:none`;
 
+      selector.addEventListener("click", (e) => {
+        const target = e.target;
+        console.log(listWrapper);
+        listWrapper.classList.toggle("active");
+      });
+
       listWrapper.addEventListener("click", (e) => {
         const target = e.target;
         if (target.classList.contains("option")) {
-          arr.push(target.textContent);
           target.classList.toggle("select");
+          if (!arr.includes(target.textContent)) {
+            arr.push(target.textContent);
+          } else {
+            arr = arr.filter((el) => el !== target.textContent);
+          }
+          if (arr.length === 0) {
+            selectorContent.innerHTML = "Выберете элемент";
+          } else {
+            selectorContent.innerHTML = `Выбран ${arr.length} элемент (ов)`;
+          }
         }
       });
 
       window.addEventListener("click", (e) => {
         const target = e.target;
+
         if (
           !target.classList.contains("option") &&
-          !target.classList.contains("#select1")
+          !target.classList.contains("selectBlock")
         ) {
-          listWrapper.classList.remove("active");
-          console.log(target);
+          listWrapper.classList.remove("isActive");
         }
       });
     </script>
