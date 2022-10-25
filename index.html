@@ -4,109 +4,95 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
     <title>Document</title>
   </head>
   <body>
-    <div class="wrapper">
-      <label for="select1">Basic selector</label>
+    <div class="container">
+      <label for="select1">Выберите город</label>
       <select id="select1">
-        <option value="1">1245123123</option>
-        <option value="2">2123123123</option>
-        <option value="3">3123123123</option>
-        <option value="4">4123123123</option>
+        <option value="1">Москва</option>
+        <option value="2">Санкт-Петербург</option>
+        <option value="3">Омск</option>
+        <option value="4">Тверь</option>
+        <option value="5">Тула</option>
+        <option value="6">Иваново</option>
       </select>
-    </div>
-    <div class="wrapper">
+
+      <label for="select2">Basic selector</label>
       <select id="select2">
-        <option>1</option>
         <option value="1">1245123123</option>
         <option value="2">2123123123</option>
+        <option value="3">312312235123</option>
+        <option value="4">4123123123</option>
+        <option value="5">512343635123</option>
+        <option value="6">6121543123123</option>
       </select>
-    </div>
-    <div class="wrapper">
+
       <select id="select3">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
+        <option value="1">1245123123</option>
+        <option value="2">2123123123</option>
+        <option value="3">312312235123</option>
+        <option value="4">4123123123</option>
+        <option value="5">512343635123</option>
+        <option value="6">6121543123123</option>
+      </select>
+      <select id="select4">
+        <option value="1">1245123123</option>
+        <option value="2">2123123123</option>
+        <option value="3">312312235123</option>
+        <option value="4">4123123123</option>
+        <option value="5">512343635123</option>
+        <option value="6">6121543123123</option>
       </select>
     </div>
 
-    <div class="wrapper">
-      <label for="select4">My super selector 4</label>
-      <select id="select4">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
+    <div class="test">
+      <select id="select5">
+        <option value="1">1245123123</option>
+        <option value="2">2123123123</option>
+        <option value="3">312312235123</option>
+        <option value="4">4123123123</option>
+        <option value="5">512343635123</option>
+        <option value="6">6121543123123</option>
+      </select>
+      <select id="select6">
+        <option value="1">1245123123</option>
+        <option value="2">2123123123</option>
+        <option value="3">312312235123</option>
+        <option value="4">4123123123</option>
+        <option value="5">512343635123</option>
+        <option value="6">6121543123123</option>
       </select>
     </div>
 
     <script src="./script.js"></script>
     <script>
-      const select = document.querySelector("#select1");
-      console.log(select);
-      const list = select.querySelectorAll("option");
-      let arr = [];
-      let v;
-
-      const selectorWrapper = document.createElement("div");
-      selectorWrapper.classList.add("selectorWrapper");
-      const listWrapper = document.createElement("ul");
-      listWrapper.classList.add("listWrapper");
-      list.forEach((elem) => {
-        const item = document.createElement("li");
-        item.setAttribute("value", elem.value);
-        item.innerHTML = elem.textContent;
-        item.classList.add("option");
-        listWrapper.append(item);
-      });
-      const selector = document.createElement("div");
-      selector.classList.add("selectBlock");
-
-      const btn = document.createElement("button");
-      btn.classList.add("chevron");
-      selector.setAttribute("id", "select1");
-      const selectorContent = document.createElement("span");
-      selectorContent.innerHTML = "Выберете элемент";
-
-      btn.innerHTML = "˅";
-      selector.append(selectorContent, btn);
-      selectorWrapper.append(selector, listWrapper);
-      select.after(selectorWrapper);
-      select.style = `display:none`;
-
-      selector.addEventListener("click", (e) => {
-        const target = e.target;
-        console.log(listWrapper);
-        listWrapper.classList.toggle("active");
+      window.createCustomSelector("#select1", {
+        multiple: false, // множественный выбор
+        input: false, // фильтрация по введеной строке
       });
 
-      listWrapper.addEventListener("click", (e) => {
-        const target = e.target;
-        if (target.classList.contains("option")) {
-          target.classList.toggle("select");
-          if (!arr.includes(target.textContent)) {
-            arr.push(target.textContent);
-          } else {
-            arr = arr.filter((el) => el !== target.textContent);
-          }
-          if (arr.length === 0) {
-            selectorContent.innerHTML = "Выберете элемент";
-          } else {
-            selectorContent.innerHTML = `Выбран ${arr.length} элемент (ов)`;
-          }
-        }
+      window.createCustomSelector("#select2", {
+        label: "Select2",
+        multiple: true, // множественный выбор
+        input: false, // фильтрация по введеной строке
       });
 
-      window.addEventListener("click", (e) => {
-        const target = e.target;
+      window.createCustomSelector("#select3", {
+        label: "Select3",
+        multiple: false, // множественный выбор
+        input: true, // фильтрация по введеной строке
+      });
 
-        if (
-          !target.classList.contains("option") &&
-          !target.classList.contains("selectBlock")
-        ) {
-          listWrapper.classList.remove("isActive");
-        }
+      window.createCustomSelector("#select4", {
+        multiple: true, // множественный выбор
+        input: true, // фильтрация по введеной строке
+      });
+
+      window.createCustomSelector("#select5", {
+        multiple: true, // множественный выбор
+        input: true, // фильтрация по введеной строке
       });
     </script>
   </body>
