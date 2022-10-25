@@ -35,6 +35,7 @@ body {
   border-radius: 5px;
   margin-top: 10px;
   display: none;
+
   list-style: none;
   position: absolute;
   background: white;
@@ -44,7 +45,7 @@ body {
 .listWrapper ul {
   overflow: hidden;
   overflow-y: scroll;
-  max-height: 116px;
+  height: 116px;
 }
 
 .selectHeader {
@@ -57,11 +58,18 @@ body {
   justify-content: space-between;
 }
 
-.selectHeader button {
+.chevron {
+  background: url(../assets/img/down-arrow.png) center no-repeat, white;
+  background-size: contain;
+  width: 10px;
   padding: 2px 10px;
   border: none;
-  background: none;
-  color: aliceblue;
+  border-radius: 5px;
+}
+
+.open {
+  background: url(../assets/img/upload.png) center no-repeat, white;
+  background-size: contain;
 }
 
 .selectContent {
@@ -108,11 +116,10 @@ body {
 }
 
 .selectBlock label {
-  display: block;
+  margin-right: 10px;
 }
 
 .selectorWrapper {
-  margin-left: 10px;
   position: relative;
   width: 170px;
 }
@@ -131,5 +138,4 @@ body {
 .test {
   position: absolute;
   bottom: 0;
-  display: flex;
 }

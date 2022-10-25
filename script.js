@@ -24,7 +24,7 @@ window.createCustomSelector = function (
   inputField.addEventListener("input", (e) => {
     const target = e.target;
     optionList.forEach((el) => {
-      if (!el.textContent.includes(target.value)) {
+      if (!el.textContent.toLowerCase().includes(target.value)) {
         el.classList.add("hidden");
       } else {
         el.classList.remove("hidden");
@@ -34,7 +34,7 @@ window.createCustomSelector = function (
 
   const selectBlock = createElement("div", "selectBlock");
   const selectHeader = createElement("div", "selectHeader");
-  const btn = createElement("button", "chevron", "˅");
+  const btn = createElement("button", "chevron");
   selectorWrapper.setAttribute("id", selector.replace("#", ""));
 
   const selectorContent = createElement(
@@ -46,6 +46,7 @@ window.createCustomSelector = function (
   selectHeader.append(selectorContent, btn);
 
   const selectLabel = createElement("label");
+  selectLabel.setAttribute("for", selector.replace("#", ""));
 
   if (label == null) {
     if (labelItem !== undefined) {
@@ -66,6 +67,7 @@ window.createCustomSelector = function (
 
   selectHeader.addEventListener("click", (e) => {
     listWrapper.classList.toggle("isActive");
+    btn.classList.toggle("open");
     let offset = listWrapper.clientHeight + selectBlock.clientHeight;
     console.log(
       document.documentElement.scrollHeight -
@@ -114,6 +116,7 @@ window.createCustomSelector = function (
     console.log();
     if (target.closest(selector) === null) {
       listWrapper.classList.remove("isActive");
+      btn.classList.remove("open");
     }
   });
 };
