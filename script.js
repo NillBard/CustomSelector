@@ -40,7 +40,7 @@ window.createCustomSelector = function (
   const selectorContent = createElement(
     "div",
     "selectContent",
-    "Выберете элемент"
+    "Выберите элемент"
   );
 
   selectHeader.append(selectorContent, btn);
@@ -98,7 +98,7 @@ window.createCustomSelector = function (
         }
 
         if (arr.length === 0) {
-          selectorContent.innerHTML = "Выберете элемент";
+          selectorContent.innerHTML = "Выберите элемент";
         } else {
           selectorContent.innerHTML = arr.join(" ");
         }
