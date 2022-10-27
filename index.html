@@ -15,8 +15,8 @@
   </head>
   <body>
     <div class="container">
-      <label for="select1">Выберите город</label>
-      <select id="select1">
+      <label for="select1">City</label>
+      <select id="select1" class="my-selector">
         <option value="1">Москва</option>
         <option value="2">Санкт-Петербург</option>
         <option value="3">Омск</option>
@@ -25,8 +25,8 @@
         <option value="6">Иваново</option>
       </select>
 
-      <label for="select2">Какой-то селектор</label>
-      <select id="select2">
+      <label for="select2">Fruit</label>
+      <select id="select2" class="my-selector" data-selector="custom-selector">
         <option value="1">Апельсин</option>
         <option value="2">Яблоко</option>
         <option value="3">Лимон</option>
@@ -35,7 +35,8 @@
         <option value="6">Манго</option>
       </select>
 
-      <select id="select3">
+      <label for="select3">Veg</label>
+      <select id="select3" class="my-selector" data-selector="custom-selector">
         <option value="1">Огурец</option>
         <option value="2">Помидор</option>
         <option value="3">Картофель</option>
@@ -43,7 +44,9 @@
         <option value="5">Редис</option>
         <option value="6">Морковь</option>
       </select>
-      <select id="select4">
+
+      <label for="select4">Eblany</label>
+      <select id="select4" class="my-selector" data-selector="custom-selector">
         <option value="1">Бетмен 1</option>
         <option value="2">Человек-паук</option>
         <option value="3">Железный человек</option>
@@ -53,7 +56,7 @@
       </select>
     </div>
 
-    <div class="test">
+    <!-- <div class="test">
       <select id="select5">
         <option value="1">Java</option>
         <option value="2">JavaScript</option>
@@ -70,36 +73,41 @@
         <option value="5">Идиот</option>
         <option value="6">Человек в футляре</option>
       </select>
-    </div>
+    </div> -->
 
     <script src="./script.js"></script>
     <script>
-      window.createCustomSelector("#select1", {
-        multiple: false, // множественный выбор
-        input: false, // фильтрация по введеной строке
+      window.createCustomSelector('.my-selector', {
+        multiple: true,
+        input: false,
       });
 
-      window.createCustomSelector("#select2", {
-        label: "Выберите фрукт",
-        multiple: true, // множественный выбор
-        input: false, // фильтрация по введеной строке
-      });
+      // window.createCustomSelector("#select1", {
+      //   multiple: false, // множественный выбор
+      //   input: false, // фильтрация по введеной строке
+      // });
 
-      window.createCustomSelector("#select3", {
-        label: "Выберите овощ",
-        multiple: false, // множественный выбор
-        input: true, // фильтрация по введеной строке
-      });
+      // window.createCustomSelector("#select2", {
+      //   label: "Выберите фрукт",
+      //   multiple: true, // множественный выбор
+      //   input: false, // фильтрация по введеной строке
+      // });
 
-      window.createCustomSelector("#select4", {
-        multiple: true, // множественный выбор
-        input: true, // фильтрация по введеной строке
-      });
+      // window.createCustomSelector("#select3", {
+      //   label: "Выберите овощ",
+      //   multiple: false, // множественный выбор
+      //   input: true, // фильтрация по введеной строке
+      // });
 
-      window.createCustomSelector("#select5", {
-        multiple: true, // множественный выбор
-        input: true, // фильтрация по введеной строке
-      });
+      // window.createCustomSelector("#select4", {
+      //   multiple: true, // множественный выбор
+      //   input: true, // фильтрация по введеной строке
+      // });
+
+      // window.createCustomSelector("#select5", {
+      //   multiple: true, // множественный выбор
+      //   input: true, // фильтрация по введеной строке
+      // });
     </script>
   </body>
 </html>
