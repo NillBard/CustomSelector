@@ -94,11 +94,11 @@ label {
   color: white;
 }
 
-.isActive .listWrapper {
+.My-custom-select .listWrapper {
   display: block;
 }
 
-.isActive .chevron {
+.My-custom-select .chevron {
   background: url(../assets/img/arrow-up.png) center no-repeat, white;
   background-size: contain;
 }

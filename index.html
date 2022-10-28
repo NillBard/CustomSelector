@@ -77,9 +77,9 @@
 
     <script src="./script.js"></script>
     <script>
-      window.createCustomSelector('.my-selector', {
+      window.createCustomSelector("[data-selector='custom-selector']", {
         multiple: true,
-        input: false,
+        input: true,
       });
 
       // window.createCustomSelector("#select1", {
